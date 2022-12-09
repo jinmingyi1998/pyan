@@ -31,6 +31,8 @@ def get_module_name(filename, root: str = None):
     else:
         # otherwise it is the filename without extension
         module_path = filename.replace(".py", "")
+        
+    module_path = os.path.abspath(module_path)
 
     # find the module root - walk up the tree and check if it contains .py files - if yes. it is the new root
     directories = [(module_path, True)]
